@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: rgb(41, 90, 225);
+    padding: 20px;
+}
+
+.logo {
+    color: white;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr; 
+}
+
+.todo-navigation {
+    background-color: rgb(224, 215, 215);
+    padding: 20px;
+    font-size: 30px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    height: calc(100vh - 76px); 
+}
+.nav{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+ .projects-folder {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+ }
+
+.display {
+    height: calc(100vh - 85px); 
+}
