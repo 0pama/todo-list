@@ -8,6 +8,24 @@
   <script defer src="main.bundle.js"></script>
 </head>
   <body>
+    <dialog id="dialog" >
+      <button id="closediolog">close</button>
+      <form id="dialogForm" >
+        <label for="title">
+          <input type="text" name="title" required>
+        </label>
+        <label for="desc">
+          <input type="text" name="desc" required>
+        </label>
+        <label for="date">
+          <input type="date" name="date" required>
+        </label>
+        <label for="priority">
+          <input type="text" name="priority" required>
+        </label>
+        <button id="confirm">confirm</button>
+      </form>
+    </dialog>
     <nav>
       <div class="logo">
         <h1>DO-IT</h1>
@@ -16,35 +34,40 @@
     <div class="content">
       <div class="todo-navigation">
         <ul class="nav">
-          <li>
+          <li id="home">
             <span>home</span>
-            <span class="project-count">9</span>
+            <span class="project-count"></span>
           </li>
-          <li>
+          <li id="today">
             <span>today</span>
-            <span class="project-count">5</span>
+            <span class="project-count"></span>
           </li>
-          <li>
+          <li id="week">
             <span>week</span>
-            <span class="project-count">5</span>
+            <span class="project-count"></span>
           </li>
-          <li>
+          <ul id="projects">
             <span>projects</span>
             <ul class="projects-folder">
-              <li>random1</li>
-              <li>random1</li>
-              <li>random1</li>
-              <li>random1</li>
-              <li>random1</li>
+              
             </ul>
-         </li>
-          <li>
+            <form>
+              <input type="addproj" name="" id="">
+              <button>submit</button>
+            </form>
+          </ul>
+          <li id="notes">
             <span>notes</span>
-            <span class="project-count">5</span>
+            <span class="note-project-count"></span>
           </li>
         </ul>
       </div>
-      <div class="display"> this inside display</div>
+      
+      <div class="displaycontainer">
+        <div id="display">
+          
+        </div>
+      </div>
     </div>
   </body>
 </html>
