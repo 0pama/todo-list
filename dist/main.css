@@ -1,47 +1,74 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 nav {
-    background-color: rgb(41, 90, 225);
-    padding: 20px;
+  background-color: rgb(41, 90, 225);
+  padding: 20px;
 }
 
 .logo {
-    color: white;
-    font-size: larger;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  font-size: larger;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: auto 1fr; 
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto 1fr; 
 }
 
 .todo-navigation {
-    background-color: rgb(224, 215, 215);
-    padding: 20px;
-    font-size: 30px;
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    height: calc(100vh - 76px); 
+  background-color: rgb(224, 215, 215);
+  padding: 20px;
+  font-size: 1.2rem; /* Changed font size to be more consistent */
+  height: calc(100vh - 76px); 
+  overflow-y: auto; /* Added overflow-y for scrollable content */
 }
-.nav{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Decreased the gap between list items */
+  margin-top: 20px; /* Decreased the top margin */
+  padding-left: 20px; /* Adjusted padding for consistency */
 }
- .projects-folder {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
- }
+
+.nav > li {
+  display: flex;
+  align-items: center; /* Changed justify-content to align-items for vertical alignment */
+}
+
+.projects-folder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto; /* Added overflow-y for scrollable content */
+  max-height: 200px; /* Changed height to max-height for responsiveness */
+  width: 100%;
+}
 
 .display {
-    height: calc(100vh - 85px); 
+  height: calc(100vh - 105px); /* Adjusted height to account for padding and margin */
+}
+
+.project {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid blue;
+  margin: 20px 10px;
+  padding: 10px;
+  align-items: center;
+  border-radius:20px ;
+}
+
+.project button {
+  height: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  width: max-content;
+  border: none;
 }
