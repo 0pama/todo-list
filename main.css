@@ -1,74 +1,156 @@
+/* Reset styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Navigation styles */
 nav {
-  background-color: rgb(41, 90, 225);
-  padding: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  flex: 0 0 auto;
 }
 
-.logo {
-  color: white;
-  font-size: larger;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.logo h1 {
+  margin: 0;
 }
 
+/* Content styles */
 .content {
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: auto 1fr; 
+  display: flex;
+  flex: 1 1 auto;
 }
 
 .todo-navigation {
-  background-color: rgb(224, 215, 215);
+  background-color: #f0f0f0;
   padding: 20px;
-  font-size: 1.2rem; /* Changed font size to be more consistent */
-  height: calc(100vh - 76px); 
-  overflow-y: auto; /* Added overflow-y for scrollable content */
+  flex: 0 0 250px;
 }
 
 .nav {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Decreased the gap between list items */
-  margin-top: 20px; /* Decreased the top margin */
-  padding-left: 20px; /* Adjusted padding for consistency */
+  list-style-type: none;
 }
 
-.nav > li {
-  display: flex;
-  align-items: center; /* Changed justify-content to align-items for vertical alignment */
+.nav li {
+  margin-bottom: 10px;
+}
+
+.project-nav {
+  cursor: pointer;
 }
 
 .projects-folder {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow-y: auto; /* Added overflow-y for scrollable content */
-  max-height: 200px; /* Changed height to max-height for responsiveness */
-  width: 100%;
+  list-style-type: none;
+  padding-left: 20px;
 }
 
-.display {
-  height: calc(100vh - 105px); /* Adjusted height to account for padding and margin */
+.projects-folder li {
+  margin-bottom: 5px;
 }
 
+.container {
+  padding: 0 20px;
+  flex: 1 1 auto;
+  overflow-y: scroll;
+}
+
+/* Project styles */
 .project {
-  display: flex;
-  justify-content: space-around;
-  border: 2px solid blue;
-  margin: 20px 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   padding: 10px;
-  align-items: center;
-  border-radius:20px ;
+  margin-bottom: 10px;
+}
+
+.project h1 {
+  margin-bottom: 5px;
+}
+
+.project h2,
+.project p,
+.project h3 {
+  margin: 0;
 }
 
 .project button {
-  height: fit-content;
-  padding: 10px;
-  border-radius: 10px;
-  width: max-content;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
   border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-top: 5px;
+}
+
+.project button:hover {
+  background-color: #0056b3;
+}
+
+/* Dialog styles */
+dialog {
+  border: none;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+}
+
+dialog label {
+  margin-bottom: 10px;
+}
+
+dialog input[type="text"],
+dialog input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+dialog button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+dialog button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.add-task-btn {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 20px; 
+  position: fixed; 
+  top: 30px; 
+  right:0 ; 
+}
+
+
+.add-task-btn:hover {
+  background-color: #0056b3;
 }

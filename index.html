@@ -12,16 +12,16 @@
       <button id="closediolog">close</button>
       <form id="dialogForm" >
         <label for="title">
-          <input type="text" name="title" required>
+          <input type="text" name="title" required placeholder="title:">
         </label>
         <label for="desc">
-          <input type="text" name="desc" required>
+          <input type="text" name="desc" required placeholder="desc">
         </label>
         <label for="date">
-          <input type="date" name="date" required>
+          <input type="date" name="date" required placeholder="date">
         </label>
         <label for="priority">
-          <input type="text" name="priority" required>
+          <input type="text" name="priority" required placeholder="priority">
         </label>
         <button id="confirm">confirm</button>
       </form>
@@ -35,15 +35,15 @@
       <div class="todo-navigation">
         <ul class="nav">
           <li id="home">
-            <span>home</span>
+            <span class="project-nav">home</span>
             <span class="project-count"></span>
           </li>
           <li id="today">
-            <span>today</span>
+            <span class="project-nav">today</span>
             <span class="project-count"></span>
           </li>
           <li id="week">
-            <span>week</span>
+            <span class="project-nav">week</span>
             <span class="project-count"></span>
           </li>
           <ul id="projects">
@@ -57,17 +57,42 @@
             </form>
           </ul>
           <li id="notes">
-            <span>notes</span>
+            <span class="project-nav">notes</span>
             <span class="note-project-count"></span>
           </li>
         </ul>
       </div>
       
-      <div class="displaycontainer">
-        <div id="display">
-          
+      <div class="container">
+        <div id="displaycontainer">
         </div>
+        <div id="display"></div>
       </div>
     </div>
+
+
+
+    <dialog class="edit-project-dialog">
+      <button id="edit-project-dialog-close-btn">close</button>
+      <form id="edit-project-dialog-form" >
+        <label for="title">title:
+          <input type="text" name="title" class="edittitle" required placeholder="title:">
+        </label>
+        <label for="desc">
+          desc:
+          <input type="text" name="desc" class="editdesc" placeholder="desc">
+        </label>
+        <label for="date">
+          date:
+          <input type="date" name="date" class="editdate" required placeholder="date">
+        </label>
+        <label for="priority">
+          priority:
+          <input type="text" name="priority" class="editpriority" required placeholder="priority">
+        </label>
+        <button id="edit-project-dialog-confirm-btn">confirm</button>
+      </form>
+
+    </dialog>
   </body>
 </html>
