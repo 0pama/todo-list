@@ -2,17 +2,19 @@ export const render = (function() {
     const dialog = document.getElementById("dialog");
     const closediolog = document.getElementById('closediolog');
     const display = document.getElementById("display");
+    const displaycontainer = document.getElementById("displaycontainer");
     const dialogForm = document.getElementById('dialogForm')
+
     const AddTasksButton = function(project) {
         const btn = document.createElement('button');
         btn.innerText = `ADD TASK TO ${project}`;
         btn.id = project;
+        btn.className = 'add-task-btn'
         btn.addEventListener('click', () => {
             dialog.showModal();
         });
-
-        display.innerHTML = "";
-        display.appendChild(btn);
+        displaycontainer.innerHTML = ""
+        displaycontainer.appendChild(btn);
 
         closediolog.addEventListener('click', (e) => {
             dialog.close()
@@ -20,39 +22,38 @@ export const render = (function() {
 
         dialogForm.className = project
         render.Tasks(project)
-        console.log(project)
-        
+        // Reset form fields after rendering tasks
+        const editprojectdialogform = document.querySelector('#edit-project-dialog-form');
+        editprojectdialogform.reset();
     };
 
 
     const Tasks = function(name){
+        display.innerHTML = ""
         const name1 = name
         tasks.loadFromStorage();
         const folder = tasks.categories[name]
-        folder.forEach(element => {
+        folder.forEach((element,index) => {
             const div = document.createElement('div');
-            div.className = "project"; // Setting class for div element
+            div.className = "project";
+            div.id = element.priority; 
+            
             div.innerHTML = `<h1>${element.title}</h1>
                              <h2>${element.desc}</h2>
                              <p>${element.date}</p>
                              <h3>${element.priority}</h3>
-                             <button>edit</button>
+                             <button class="edit-task" id="${index}">edit</button>
                              <button>details</button>
-                             <button>delete</button>`;
+                             <button id="delete-task" class="${index}-${name}">delete</button>`;
             display.appendChild(div);
         });
-        
     }
-
 
     return {
         AddTasksButton,
         Tasks
     };
-})(); // Added parentheses to execute the function immediately
-
-
-
+})();
 
 export const tasks = (function() {
     const categories = {
@@ -60,37 +61,49 @@ export const tasks = (function() {
         today: [],
         week: [],
         projects: []
-    
     };
 
     const add = function(obj,name) {
-
         tasks.categories[name].push(obj)
         tasks.addToStorage()
     }
 
-
-      
     const addToStorage = function () {
-        // Convert tasks.categories to JSON and store in localStorage
         const arr = JSON.stringify(tasks.categories);
         localStorage.setItem("data", arr);
     };
     
     const loadFromStorage = function () {
         const arr1 = localStorage.getItem("data");
-    
         if (arr1) {
             tasks.categories = JSON.parse(arr1);
-        } else{
-            
         }
     };
-    
-      return {
+
+    const deletetask = function(e) {
+        const arr = e.target.className.split('-')
+        const indextodelete = parseInt(arr[0], 10);
+        const category = arr[1];
+        tasks.categories[category].splice(indextodelete,1);
+        addToStorage()
+        render.Tasks(category)
+    }
+     
+    const edittask = function(obj,category,indextoedit) {
+        tasks.categories[category][indextoedit]['title'] = obj['title'];
+        tasks.categories[category][indextoedit]['desc'] = obj['desc'];
+        tasks.categories[category][indextoedit]['date'] = obj['date'];
+        tasks.categories[category][indextoedit]['priority'] = obj['priority'];
+        addToStorage()
+        render.Tasks(category)
+    }
+
+    return {
         categories,
         add,
         addToStorage,
-        loadFromStorage
-        }
-})()
+        loadFromStorage,
+        deletetask,
+        edittask
+    }
+})();
