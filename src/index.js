@@ -2,6 +2,8 @@ import { render } from "./todoFunctions";
 import { tasks } from "./todoFunctions";
 
 
+
+
 //   nav 
 render.navPagination()
 
@@ -10,8 +12,10 @@ render.Tasks("home")
 render.AddTasksButton("home")
 
 
+render.projectCount()
 
 
+render.details()
 // procces form data 
 tasks.processFormData()
 
@@ -24,5 +28,7 @@ render.deletebtn()
 
 render.editDiolgForm()   // EDIT DIOLOG FORM 
 tasks.processEditFormData()     // procces edit form data 
+
+
 
 

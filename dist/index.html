@@ -6,6 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="main.css">
   <script defer src="main.bundle.js"></script>
+  <script>
+    function handleButtonClick(event) {
+        event.preventDefault();
+        alert('Coming soon');
+    }
+    window.addEventListener('load', function() {
+    
+    var spanElement = document.querySelector('#home .project-nav');
+    
+    
+    spanElement.click();
+});
+
+</script>
+</script>
 </head>
   <body>
     <dialog id="dialog" >
@@ -21,7 +36,13 @@
           <input type="date" name="date" required placeholder="date">
         </label>
         <label for="priority">
-          <input type="text" name="priority" required placeholder="priority">
+          <select name="priority" required>
+            <option value="" disabled selected>Select Priority</option>
+    <option value="low" class="custom-option" style="color: green;">low</option>
+    <option value="medium" class="custom-option" style="color:rgb(150, 150, 38);">medium</option>
+    <option value="high" class="custom-option" style="color: rgb(121, 53, 53);">high</option>
+          </select>
+          
         </label>
         <button id="confirm">confirm</button>
       </form>
@@ -35,16 +56,16 @@
       <div class="todo-navigation">
         <ul class="nav">
           <li id="home">
-            <span class="project-nav">home</span>
-            <span class="project-count"></span>
+            <span class="project-nav" class="homel">home</span>
+            <span class="project-count-home"></span>
           </li>
           <li id="today">
             <span class="project-nav">today</span>
-            <span class="project-count"></span>
+            <span class="project-count-today"></span>
           </li>
           <li id="week">
             <span class="project-nav">week</span>
-            <span class="project-count"></span>
+            <span class="project-count-week"></span>
           </li>
           <ul id="projects">
             <span>projects</span>
@@ -52,13 +73,13 @@
               
             </ul>
             <form>
-              <input type="addproj" name="" id="">
-              <button>submit</button>
+              <input type="addproj" placeholder="add project" id="">
+              <button onclick="handleButtonClick(event)" style="background-color: #007BFF;color: white;margin-top: 10px; padding: 10px;">submit</button>
             </form>
           </ul>
           <li id="notes">
             <span class="project-nav">notes</span>
-            <span class="note-project-count"></span>
+            <span class="project-count-note"></span>
           </li>
         </ul>
       </div>
@@ -88,11 +109,28 @@
         </label>
         <label for="priority">
           priority:
-          <input type="text" name="priority" class="editpriority" required placeholder="priority">
+          <select name="priority" class="editpriority" required>
+            <option value="" disabled selected>Select Priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          
         </label>
         <button id="edit-project-dialog-confirm-btn">confirm</button>
       </form>
 
     </dialog>
+
+
+    <dialog id="view-task-dialog" class="edit-project-dialog">
+      <button id="view-task-dialog-close-btn">Close</button>
+      <div id="view-task-dialog-content">
+          <p><strong>Title:</strong> <span id="view-title"></span></p>
+          <p><strong>Description:</strong> <span id="view-desc"></span></p>
+          <p><strong>Date:</strong> <span id="view-date"></span></p>
+          <p><strong>Priority:</strong> <span id="view-priority"></span></p>
+      </div>
+  </dialog>
   </body>
 </html>
