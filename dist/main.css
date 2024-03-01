@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Body styles */
@@ -48,8 +49,8 @@ nav {
   flex-direction: row;
   justify-content: space-between;
 }
-.nav li:active{
-  border: solid 2px  #007bff;
+.nav li > .project-nav:hover{
+ color: #007bff;
 
 }
 .project-count{
@@ -168,7 +169,295 @@ dialog button:hover {
   right:0 ; 
 }
 
-
+.desci  {
+  color: gray;
+  font-size: medium;
+}
 .add-task-btn:hover {
   background-color: #0056b3;
 }
+.project {
+  position: relative;
+}
+#delete-task {
+  position: absolute;
+  right:10px;
+
+  background-color: red;
+  
+  }
+  #delete-task:active{
+    background-color:  #E81224;
+    
+  }
+
+
+#low > h3 {
+  color:  #16C60C;
+}
+#low > h3::after {
+  content: "🟢"
+  
+}
+
+#medium > h3 {
+  color:#FFF100 ;
+}
+
+#medium > h3::after {
+  content: "🟡";
+}
+
+#high > h3 {
+  color:#E81224 ;
+}
+
+#high > h3::after {
+  content: "🔴";
+}
+
+
+.project {
+  /* Your existing styles */
+  transition:  5s ; /* Add transition for opacity */
+}
+
+.project.fade-out {
+  opacity: 0.9; /* Change opacity to 0 for fade-out effect */
+}
+
+.project-nav {
+  font-weight: bold;
+}
+
+.nav-selected {
+  color: #007bff;
+
+  font-weight: bold;
+  font-size: larger;
+}
+
+
+
+/* Style the transparent backdrop */
+.dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  z-index: 999; /* Ensure it's above other content */
+}
+
+/* Style the dialog container */
+#dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it's above the backdrop */
+}
+
+/* Style the close button */
+#closediolog {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+}
+
+#closediolog:hover {
+  color: #333;
+}
+
+#dialogForm{
+  margin-top: 20px;
+}
+
+/* Style the form labels */
+#dialogForm label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Style the form inputs */
+#dialogForm input[type="text"],
+#dialogForm input[type="date"],
+#dialogForm select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Style the confirm button */
+#confirm {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background-color: #0056b3;
+}
+
+
+/* Style the select element */
+#dialogForm select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+
+
+
+/* Style the edit dialog container */
+.edit-project-dialog {
+  
+  z-index: 100000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Style the close button for the edit dialog */
+#edit-project-dialog-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* Style the form within the edit dialog */
+#edit-project-dialog-form {
+  margin-top: 20px;
+}
+
+/* Style the labels within the edit dialog */
+#edit-project-dialog-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Style the inputs within the edit dialog */
+#edit-project-dialog-form input[type="text"],
+#edit-project-dialog-form input[type="date"],
+#edit-project-dialog-form select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Style the confirm button for the edit dialog */
+#edit-project-dialog-confirm-btn {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#edit-project-dialog-confirm-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+/* Style the transparent backdrop for view task dialog */
+#view-task-dialog {
+
+  width: 70%;
+  height: 70%;
+  background: whitesmoke;
+}
+#view-task-dialog::backdrop{
+  background-color: rgba(0, 0, 0, 0.81);
+}
+
+/* Style the close button for the view task dialog */
+#view-task-dialog-close-btn {
+  border-radius:10px ;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: 2px solid red;
+  font-size: 24px;
+  cursor: pointer;
+  color: red; /* Dark color for contrast */
+}
+
+#view-task-dialog-close-btn:hover {
+  color: white;
+  background-color: red; /* Darker color on hover */
+}
+
+
+/* Additional styling for task details */
+#view-task-dialog-content p {
+  margin: 20px 0; /* Increased margin for spacing */
+  font-size: 40px; /* Larger font size for readability */
+}
+
+#view-task-dialog-content h1 {
+  font-size: 28px; /* Larger font size for headings */
+  margin-bottom: 10px; /* Increased margin bottom */
+}
+
+#view-task-dialog-content h2,
+#view-task-dialog-content h3 {
+  font-size: 24px; /* Larger font size for headings */
+  margin-bottom: 5px; /* Increased margin bottom */
+}
+
+#view-task-dialog-content strong {
+  color: #88888857; /* Slightly dim color for less important details */
+  font-weight: bold;
+}
+
+#view-task-dialog-content span {
+  font-style: italic;
+}
+
