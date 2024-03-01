@@ -42,7 +42,22 @@ nav {
 }
 
 .nav li {
-  margin-bottom: 10px;
+  
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nav li:active{
+  border: solid 2px  #007bff;
+
+}
+.project-count{
+
+  border: 2px solid;
+}
+.nav ul {
+  margin-top: 30px;
 }
 
 .project-nav {
@@ -60,7 +75,9 @@ nav {
 
 .container {
   padding: 0 20px;
+margin-top: 50px;
   flex: 1 1 auto;
+  height: 87vh;
   overflow-y: scroll;
 }
 
@@ -71,6 +88,7 @@ nav {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+  transition: 10s;
 }
 
 .project h1 {
