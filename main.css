@@ -461,3 +461,17 @@ dialog button:hover {
   font-style: italic;
 }
 
+.projects-folder{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap :0px;
+  margin: 0;
+  
+ overflow-y: scroll;
+ scrollbar-color: blue;
+}
+
+#custom-project{
+  margin-top: 10px;
+} 
