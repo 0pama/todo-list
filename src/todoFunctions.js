@@ -113,7 +113,7 @@ export const render = (function() {
         btn.addEventListener('click', () => {
             dialog.showModal();
         });
-        displaycontainer.innerHTML = ""
+        displaycontainer.innerHTML = "";
         displaycontainer.appendChild(btn);
 
         closediolog.addEventListener('click', (e) => {
@@ -121,6 +121,9 @@ export const render = (function() {
         })
 
         dialogForm.className = project
+        console.log(project)
+        render.Tasks(project)
+
        
         
         } else{
@@ -183,7 +186,8 @@ export const tasks = (function() {
         home: [],
         today: [],
         week: [],
-        projects: []
+        projects: [],
+        notes: []
     };
 
 
@@ -478,7 +482,9 @@ export const tasks = (function() {
             ],
             projects: [
                 // Add more default tasks for projects here
-            ]
+            ],
+            notes: []
+
         };
     }
     return {
@@ -493,3 +499,5 @@ export const tasks = (function() {
         processEditFormData
     }
 })();
+
+
