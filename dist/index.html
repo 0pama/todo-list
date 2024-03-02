@@ -7,10 +7,7 @@
 <link rel="stylesheet" href="main.css">
   <script defer src="main.bundle.js"></script>
   <script>
-    function handleButtonClick(event) {
-        event.preventDefault();
-        alert('Coming soon');
-    }
+
     window.addEventListener('load', function() {
     
     var spanElement = document.querySelector('#home .project-nav');
@@ -72,9 +69,9 @@
             <ul class="projects-folder">
               
             </ul>
-            <form>
-              <input type="addproj" placeholder="add project" id="" style="border: none;border-radius: 10px;padding: 6px;">
-              <button onclick="handleButtonClick(event)" style="background-color: #007BFF;color: white;margin-top: 10px; padding: 5px; border-radius: 10px;border: none;">submit</button>
+            <form id="custom-project">
+              <input type="addproj" placeholder="add project" id="custom-project-input" style="border: none;border-radius: 10px;padding: 6px;">
+              <button  style="background-color: #007BFF;color: white;margin-top: 10px; padding: 5px; border-radius: 10px;border: none;">submit</button>
             </form>
           </ul>
           <li id="notes">

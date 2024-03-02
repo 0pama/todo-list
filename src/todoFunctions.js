@@ -13,19 +13,15 @@ export const render = (function() {
 
     
         const details = function () {
-            // Changed event listener to target the document instead of specific elements
             document.addEventListener('click', function(event) {
                 const target = event.target;
-                // Check if the clicked element has the id 'task-details'
                 if (target && target.id === 'task-details') {
-                    // Split the class name to extract index and category
                     const arr = target.className.split('-');
                     const indexToView = parseInt(arr[0], 10);
                     const categoryToView = arr[1];
     
                     const task = tasks.categories[categoryToView][indexToView];
     
-                    // Update the UI with task details
                     document.getElementById('view-title').textContent = task.title;
                     document.getElementById('view-desc').textContent = task.desc;
                     document.getElementById('view-date').textContent = task.date;
@@ -190,7 +186,7 @@ export const tasks = (function() {
         notes: []
     };
 
-
+    
 
     const processFormData = function() {
         document.getElementById('dialogForm').addEventListener('submit',(e) => {
