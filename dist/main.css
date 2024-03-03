@@ -475,3 +475,25 @@ dialog button:hover {
 #custom-project{
   margin-top: 10px;
 } 
+
+
+#projects-count >
+.project-count-Projects {
+  color:#007bff ;
+  margin-left: 113px;
+  font-weight: bold;
+}
+
+
+.delete-category-btn {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: larger;
+  color: red;
+}
+
+#los ,#prok {
+  color: #007bff;
+
+}

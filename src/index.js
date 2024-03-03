@@ -31,7 +31,7 @@ tasks.processEditFormData()     // procces edit form data
 
 
 
-function costomProjects() {
+ export default function costomProjects() {
     tasks.loadFromStorage();
     let node = document.querySelector('.projects-folder');
     node.innerHTML = "";
@@ -40,10 +40,14 @@ function costomProjects() {
         let projectName = tasks.categories['projects'][i];
         let projectCount = tasks.categories[projectName].length;
         div.innerHTML = `<li id="${projectName}">
-                            <span class="project-nav">${projectName}</span>
-                            <span class="project-count-custom">${projectCount}</span>
+        <button class="delete-category-btn">x</button>
+                            <span class="project-nav" id="prok">${projectName}</span>
+                            <span class="project-count-custom" id="los">${projectCount}</span>
                         </li>`;
         node.appendChild(div);
+        const projectCountElement = document.querySelector('.project-count-Projects');
+
+    projectCountElement.innerHTML = tasks.categories['projects'].length
     }
 
     // Add event listeners for newly created custom project categories
@@ -55,11 +59,25 @@ function costomProjects() {
             render.projectCount(); // Update project count
         });
     });
+
+    // Add event listeners for delete buttons
+    const deleteButtons = document.querySelectorAll('.delete-category-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const categoryName = button.parentElement.id;
+            deleteCategory(categoryName);
+            tasks.loadFromStorage()
+            const projectCountElement = document.querySelector('.project-count-Projects');
+
+    projectCountElement.innerHTML = tasks.categories['projects'].length
+
+        });
+    });
 }
 
 function addCategory(categoryName) {
     tasks.loadFromStorage();
-    if (!tasks.categories.hasOwnProperty(categoryName)) {
+    if (!tasks.categories.hasOwnProperty(categoryName) && categoryName !== "") {
         tasks.categories[categoryName] = [];
         if (!tasks.categories["projects"].includes(categoryName)) {
             tasks.categories["projects"].push(categoryName); // Adding to projects array
@@ -72,6 +90,23 @@ function addCategory(categoryName) {
     }
 }
 
+function deleteCategory(categoryName) {
+    if (tasks.categories.hasOwnProperty(categoryName)) {
+        // Remove category from categories object
+        delete tasks.categories[categoryName];
+        // Remove category from projects array
+        const index = tasks.categories["projects"].indexOf(categoryName);
+        if (index !== -1) {
+            tasks.categories["projects"].splice(index, 1);
+        }
+        console.log(`Category '${categoryName}' deleted successfully.`);
+        tasks.addToStorage();
+        costomProjects(); // Refresh the UI
+    } else {
+        console.log(`Category '${categoryName}' does not exist.`);
+    }
+}
+
 document.querySelector('#custom-project').addEventListener('submit', (e) => {
     e.preventDefault();
     const value = document.querySelector('#custom-project-input').value;
@@ -80,10 +115,6 @@ document.querySelector('#custom-project').addEventListener('submit', (e) => {
 
 
 
+costomProjects()
 
-
-document.querySelector('#custom-project').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const value = document.querySelector('#custom-project-input').value;
-    addCategory(value);
-});
+    

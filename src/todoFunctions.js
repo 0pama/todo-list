@@ -1,3 +1,5 @@
+import costomProjects from ".";
+
 export const render = (function() {
     const dialog = document.getElementById("dialog");
     const closediolog = document.getElementById('closediolog');
@@ -163,6 +165,7 @@ export const render = (function() {
                              <button id="delete-task" class="${index}-${name}">done</button>`;
             display.appendChild(div);
             projectCount()
+            costomProjects()
         });
     }
 
@@ -271,6 +274,7 @@ export const tasks = (function() {
         // Adjust the timing to match the transition duration (in milliseconds)
 
         render.projectCount()
+        costomProjects() 
     };
     
     const edittask = function(obj,category,indextoedit) {

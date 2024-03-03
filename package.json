@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
      "dev": "npx webpack --watch --config webpack.dev.js",
+     "build": "npx webpack --watch --config webpack.prod.js",
      "pages":"git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
